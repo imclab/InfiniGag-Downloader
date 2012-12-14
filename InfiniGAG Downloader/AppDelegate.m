@@ -96,17 +96,37 @@
     [operation start];
 }
 
-- (IBAction)takeButton:(id)sender {
+- (void)takeAction {
     [_drop setEnabled:false];
     [_take setEnabled:false];
     [self downloadImageInBackground: _currentMeme];
     [self nextPic];
 }
 
-- (IBAction)dropButton:(id)sender {
+- (void)dropAction {
     [_drop setEnabled:false];
     [_take setEnabled:false];
     [self nextPic];
+}
+
+- (IBAction)takeMenu:(id)sender {
+    if (_take.isEnabled) {
+        [self takeAction];
+    }
+}
+
+- (IBAction)dropMenu:(id)sender {
+    if (_drop.isEnabled) {
+        [self dropAction];
+    }
+}
+
+- (IBAction)takeButton:(id)sender {
+    [self takeAction];
+}
+
+- (IBAction)dropButton:(id)sender {
+    [self dropAction];
 }
 
 - (void)downloadImageInBackground:(NSDictionary *)args{
@@ -123,7 +143,7 @@
         NSString *documentsDirectory = nil;
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         documentsDirectory = [paths objectAtIndex:0];
-        NSString *pathString = [NSString stringWithFormat:@"%@/%@",documentsDirectory, guideName];
+        NSString *pathString = [NSString stringWithFormat:@"%@/Memes/%@",documentsDirectory, guideName];
         [image saveAsJpegWithName:pathString];
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
         alert = [[NSAlert alloc] init];
@@ -148,7 +168,7 @@
 
 - (bool)hasInternet {
     NSURL *url = [[NSURL alloc] initWithString:@"http://www.google.com"];
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:5.0];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:20.0];
     BOOL connectedToInternet = NO;
     if ([NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil]) {
         connectedToInternet = YES;

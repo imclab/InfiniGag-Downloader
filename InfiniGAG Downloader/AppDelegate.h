@@ -33,8 +33,13 @@
 - (void)updateImages;
 - (void)downloadImageInBackground:(NSDictionary *)args;
 - (bool)hasInternet;
+- (void)takeAction;
+- (void)dropAction;
 
 - (IBAction)takeButton:(id)sender;
 - (IBAction)dropButton:(id)sender;
+
+- (IBAction)takeMenu:(id)sender;
+- (IBAction)dropMenu:(id)sender;
 
 @end

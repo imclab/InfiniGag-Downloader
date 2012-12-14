@@ -62,6 +62,33 @@
 						<object class="NSMenu" key="NSSubmenu" id="110575045">
 							<string key="NSTitle">InfiniGAG Downloader</string>
 							<array class="NSMutableArray" key="NSMenuItems">
+								<object class="NSMenuItem" id="203865071">
+									<reference key="NSMenu" ref="110575045"/>
+									<string key="NSTitle">Take Meme</string>
+									<string key="NSKeyEquiv">t</string>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="35465992"/>
+									<reference key="NSMixedImage" ref="502551668"/>
+								</object>
+								<object class="NSMenuItem" id="1024990289">
+									<reference key="NSMenu" ref="110575045"/>
+									<string key="NSTitle">Drop Meme</string>
+									<string key="NSKeyEquiv">d</string>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="35465992"/>
+									<reference key="NSMixedImage" ref="502551668"/>
+								</object>
+								<object class="NSMenuItem" id="752397718">
+									<reference key="NSMenu" ref="110575045"/>
+									<bool key="NSIsDisabled">YES</bool>
+									<bool key="NSIsSeparator">YES</bool>
+									<string key="NSTitle"/>
+									<string key="NSKeyEquiv"/>
+									<int key="NSKeyEquivModMask">1048576</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="35465992"/>
+									<reference key="NSMixedImage" ref="502551668"/>
+								</object>
 								<object class="NSMenuItem" id="1046388886">
 									<reference key="NSMenu" ref="110575045"/>
 									<string key="NSTitle">Services</string>
@@ -251,15 +278,16 @@
 						<object class="NSButton" id="926421180">
 							<reference key="NSNextResponder" ref="451598581"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{245, 7}, {71, 32}}</string>
+							<string key="NSFrame">{{225, 7}, {91, 32}}</string>
 							<reference key="NSSuperview" ref="451598581"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="923842273">
 								<int key="NSCellFlags">67108864</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">Take</string>
+								<string key="NSContents">Take (T)</string>
 								<object class="NSFont" key="NSSupport" id="468189540">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">13</double>
@@ -279,7 +307,7 @@
 						<object class="NSButton" id="124303818">
 							<reference key="NSNextResponder" ref="451598581"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{14, 7}, {72, 32}}</string>
+							<string key="NSFrame">{{14, 7}, {94, 32}}</string>
 							<reference key="NSSuperview" ref="451598581"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="926421180"/>
@@ -288,7 +316,7 @@
 							<object class="NSButtonCell" key="NSCell" id="264698207">
 								<int key="NSCellFlags">67108864</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">Drop</string>
+								<string key="NSContents">Drop (D)</string>
 								<reference key="NSSupport" ref="468189540"/>
 								<string key="NSCellIdentifier">_NS:9</string>
 								<reference key="NSControlView" ref="124303818"/>
@@ -476,6 +504,22 @@
 					</object>
 					<int key="connectionID">608</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">dropMenu:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="1024990289"/>
+					</object>
+					<int key="connectionID">642</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">takeMenu:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="203865071"/>
+					</object>
+					<int key="connectionID">643</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -535,10 +579,13 @@
 							<reference ref="755159360"/>
 							<reference ref="908899353"/>
 							<reference ref="632727374"/>
-							<reference ref="646227648"/>
 							<reference ref="1046388886"/>
 							<reference ref="1056857174"/>
 							<reference ref="342932134"/>
+							<reference ref="646227648"/>
+							<reference ref="1024990289"/>
+							<reference ref="203865071"/>
+							<reference ref="752397718"/>
 						</array>
 						<reference key="parent" ref="694149608"/>
 					</object>
@@ -949,6 +996,21 @@
 						<reference key="object" ref="311294736"/>
 						<reference key="parent" ref="170289921"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">633</int>
+						<reference key="object" ref="203865071"/>
+						<reference key="parent" ref="110575045"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">635</int>
+						<reference key="object" ref="1024990289"/>
+						<reference key="parent" ref="110575045"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">639</int>
+						<reference key="object" ref="752397718"/>
+						<reference key="parent" ref="110575045"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -1020,13 +1082,16 @@
 				<string key="630.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="631.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="632.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="633.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="635.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="639.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="92.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">632</int>
+			<int key="maxID">643</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1035,15 +1100,25 @@
 					<string key="superclassName">NSObject</string>
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="dropButton:">id</string>
+						<string key="dropMenu:">id</string>
 						<string key="takeButton:">id</string>
+						<string key="takeMenu:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="dropButton:">
 							<string key="name">dropButton:</string>
 							<string key="candidateClassName">id</string>
 						</object>
+						<object class="IBActionInfo" key="dropMenu:">
+							<string key="name">dropMenu:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="takeButton:">
 							<string key="name">takeButton:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="takeMenu:">
+							<string key="name">takeMenu:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>
